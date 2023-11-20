@@ -1,2 +1,2 @@
-# vuejs-in-action
-Vue.js 코딩 공작소
+# Vue.js 코딩 공작소
+예제 작업 및 기록을 위해

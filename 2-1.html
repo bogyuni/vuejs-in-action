@@ -25,6 +25,10 @@
         <h2 v-text="product.title"></h2>
         <p v-html="product.decription"></p>
         <p class="price">{{product.price | formatPrice}}</p>
+        <button class="btn btn-primary btn-lg"
+        v-on:click="addToCart">
+          add to Cart
+        </button>
       </div>
     </div>
   </main>
@@ -43,7 +47,8 @@
         decription: 'For your cat <em>GOOD</em> Food!, <br> Organic 25fb Food deth',
         price: 2000,
         image: './assets/images/catfood.jpeg'
-      }
+      },
+      cart: []
     },
     filters: {
       formatPrice: function(price) {
@@ -60,6 +65,11 @@
         } else {
           return '$' + (price / 100).toFixed(2);
         }
+      }
+    },
+    methods: {
+      addToCart: function() {
+        this.cart.push(this.product.id);
       }
     },
     beforeCreate: function() {

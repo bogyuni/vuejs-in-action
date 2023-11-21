@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>넓이 계산</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <p>
+    width: {{area}}
+  </p>
+  <p>
+    <button v-on:click="length += 1">length add</button>
+    <button v-on:click="width += 1">width add</button>
+  </p>
+</div>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      length: 5,
+      width: 3
+    },
+    computed: {
+      area: function() {
+        return this.width * this.length;
+      }
+    },
+    watch: {
+      length: function(newVal, oldVal) {
+        console.log('before Length: ' + oldVal + '\n new length: '+ newVal);
+      },
+      width: function(newVal, oldVal) {
+        console.log('before width: ' + oldVal + '\n new width: '+ newVal);
+      },
+      area: function(newVal, oldVal) {
+        console.log('before area: ' + oldVal + '\n new area: '+ newVal);
+      },
+    },
+    beforeUpdate: function(){
+      console.log('데이터 변경은 결과값 변경 이전에 이루어졌습니다.')
+    }
+  });
+</script>
+</body>
+</html>

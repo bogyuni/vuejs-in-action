@@ -3,8 +3,29 @@ const APP_LOG_LIFECYCLE_EVENTS = true;
 const webstore  = new Vue({
   el: '#app',
   data: {
-    showProduct: true,
     sitename: 'Vue.js 애완용품샵',
+    showProduct: true,
+    order: {
+      firstName: '',
+      lastName: '',
+      address: '',
+      city: '',
+      zip: '',
+      state: '',
+      states: {
+        AL: 'Alabama',
+        AR: 'Arijona',
+        CA: 'Caliponia',
+        NY: 'Nevada'
+      },
+      method: 'Home',
+      business: 'Business address',
+      home: 'Home address',
+      gift: '',
+      sendGift: 'Gift On',
+      dontSendGift: 'Dont Gift'
+
+    },
     product: {
       id: 1001,
       title: 'Cat Food 25fb',
@@ -47,6 +68,9 @@ const webstore  = new Vue({
     showCheckout() {
       this.showProduct = this.showProduct ? false : true;
     },
+    submitForm() {
+      alert('Submit');
+    }
   },
   beforeCreate: function() {
     if (APP_LOG_LIFECYCLE_EVENTS) {
